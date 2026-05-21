@@ -58,9 +58,9 @@ def home_page() -> None:
 					key=f"{key_prefix}_notebook_disabled",
 				)
 
-	tile_cols = st.columns(4, gap="small")
+	tile_cols_row_1 = st.columns(4, gap="small")
 
-	with tile_cols[0]:
+	with tile_cols_row_1[0]:
 		render_tile(
 			title="01: Introduction to Data Mining",
 			description="Overview of CRISP-DM phases and foundational concepts for the course.",
@@ -72,7 +72,7 @@ def home_page() -> None:
 			key_prefix="module_01",
 		)
 
-	with tile_cols[1]:
+	with tile_cols_row_1[1]:
 		render_tile(
 			title="02: Recap Outlier Removal",
 			description="Interactive explorer to detect potential outliers using Z-score, IQR, or domain rules.",
@@ -84,7 +84,7 @@ def home_page() -> None:
 			key_prefix="module_02",
 		)
 
-	with tile_cols[2]:
+	with tile_cols_row_1[2]:
 		render_tile(
 			title="03: Transforming Variables",
 			description="Explore variable transformations such as normalization, standardization, and power transforms.",
@@ -95,6 +95,36 @@ def home_page() -> None:
 			notebook_link="https://colab.research.google.com/github/erickoziel/data-mining-course/blob/main/03_transforming_variables/module_03_main.ipynb",
 			key_prefix="module_03",
 		)
+
+
+	with tile_cols_row_1[3]:
+		render_tile(
+			title="04: Imputation of Missing Values",
+			description="Explore techniques for handling missing data, including mean, median, mode imputation, and more advanced methods.",
+			page_path="04_imputation_of_missing_values/module_04_app.py",
+			image_path="04_imputation_of_missing_values/images/04_cover.svg",
+			placeholder_text="Module preview",
+			notebook_label="Open in Colab",
+			notebook_link="https://colab.research.google.com/github/erickoziel/data-mining-course/blob/main/04_imputation_of_missing_values/module_04_main.ipynb",
+			key_prefix="module_04",
+		)
+
+	tile_cols_row_2 = st.columns(4, gap="small")
+
+	with tile_cols_row_2[0]:
+		render_tile(
+			title="05: Balancing Datasets",
+			description="Overview of techniques for handling imbalanced datasets, including resampling methods and algorithmic approaches.",
+			page_path="05_balancing_and_resampling/module_05_app.py",
+			image_path="05_balancing_and_resampling/images/05_cover.svg",
+			placeholder_text="Module preview",
+			notebook_label="Open in Colab",
+			notebook_link="https://colab.research.google.com/github/erickoziel/data-mining-course/blob/main/05_balancing_and_resampling/module_05_main.ipynb",
+			key_prefix="module_05",
+		)
+
+	
+
 
 
 home = st.Page(home_page, title="Home", icon=":material/home:", default=True)
@@ -113,11 +143,23 @@ module_03 = st.Page(
 	title="Module 03: Transforming Variables",
 	icon=":material/looks_3:"
 )
+module_04 = st.Page(
+	"04_imputation_of_missing_values/module_04_app.py",
+	title="Module 04: Imputation of Missing Values",
+	icon=":material/looks_4:"
+)
+
+module_05 = st.Page(
+	"05_balancing_and_resampling/module_05_app.py",
+	title="Module 05: Balancing Datasets",	
+	icon=":material/looks_5:"
+)
+
 
 navigation = st.navigation(
 	{
 		"Course": [home],
-		"Modules": [module_01, module_02, module_03],
+		"Modules": [module_01, module_02, module_03, module_04, module_05],
 	}
 )
 
