@@ -147,6 +147,17 @@ def home_page() -> None:
 			key_prefix="module_07",
 		)
 
+	with tile_cols_row_2[3]:
+		render_tile(
+			title="08: Feature Reduction, Selection and FA",
+			description="Explore techniques for feature reduction, selection, and factor analysis.",
+			page_path="08_feature_reduction_selection_and_factor_analysis/module_08_app.py",
+			image_path="08_feature_reduction_selection_and_factor_analysis/images/08_cover.svg",
+			placeholder_text="Module preview",
+			notebook_label="Open in Colab",
+			notebook_link="https://colab.research.google.com/github/erickoziel/data-mining-course/blob/main/08_feature_reduction_selection_and_factor_analysis/module_08_main.ipynb",
+			key_prefix="module_08",
+		)
 	
 
 
@@ -184,10 +195,17 @@ module_07 = st.Page(
 	title="Module 07: Logistic Regression",	
 )
 
+module_08 = st.Page(
+	"08_feature_reduction_selection_and_factor_analysis/module_08_app.py",
+	title="Module 08: Feature Reduction, Selection and Factor Analysis",	
+)
+
+
+
 navigation = st.navigation(
 	{
 		"Course": [home],
-		"Modules": [module_01, module_02, module_03, module_04, module_05, module_06, module_07],
+		"Modules": [module_01, module_02, module_03, module_04, module_05, module_06, module_07, module_08],
 	}
 )
 
